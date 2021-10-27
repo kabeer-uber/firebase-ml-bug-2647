@@ -10,14 +10,15 @@ import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader
 
 
 class MainActivity : AppCompatActivity() {
-    private  val TAG = "MainActivity"
+    private  val TAG = "XXMainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: ")
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
 
         FirebaseModelDownloader.getInstance()
-                .getModel("mv2_50_e47_q_v4_fix", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND, CustomModelDownloadConditions.Builder().build())
+                .getModel("mv2_100_e47_q_v1", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND, CustomModelDownloadConditions.Builder().build())
                 .addOnSuccessListener { model -> // Download complete. Depending on your app, you could enable the ML
                     Log.d(TAG, "onSuccess() called with: model = $model")
                 }
